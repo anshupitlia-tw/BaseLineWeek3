@@ -12,4 +12,12 @@ public abstract class Goods {
 
     public abstract double salesTax();
     public abstract double importDuty();
+
+    public double totalTax() {
+        return roundOffTax(salesTax()) + roundOffTax(importDuty());
+    }
+
+    private double roundOffTax(double tax) {
+        return Math.ceil(tax * 20) / 20;
+    }
 }

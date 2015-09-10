@@ -33,4 +33,11 @@ public class GoodsTest {
 
         assertEquals(0.0, pills.salesTax(), 0.0001);
     }
+
+    @Test
+    public void shouldReturnTotalTaxAsAllTaxesRoundedOff() {
+        Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
+
+        assertEquals(1.50, musicCD.totalTax(), 0.0001);
+    }
 }
