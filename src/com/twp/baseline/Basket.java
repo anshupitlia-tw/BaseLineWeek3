@@ -18,4 +18,12 @@ public class Basket {
         }
         return totalTax;
     }
+
+    public double totalCost() {
+        double totalCost = 0.0;
+        for (Goods goods : basket) {
+            totalCost += goods.totalPrice();
+        }
+        return totalCost;
+    }
 }
