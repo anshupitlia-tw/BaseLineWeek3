@@ -67,4 +67,13 @@ public class GoodsTest {
 
         assertEquals("11.5\n", outContent.toString());
     }
+
+    @Test
+    public void shouldPrintDisplayableName() {
+        Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
+
+        musicCD.getDisplayableName();
+
+        assertEquals("An imported Music CD", outContent.toString());
+    }
 }

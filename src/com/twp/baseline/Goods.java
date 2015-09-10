@@ -17,6 +17,9 @@ public abstract class Goods {
         System.out.println(totalTax());
     }
 
+    public void getDisplayableName() {
+        System.out.print(name);
+    }
     public void getDisplayableTotalPrice() {
         System.out.println(price + totalTax());
     }
