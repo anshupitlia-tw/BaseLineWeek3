@@ -1,6 +1,15 @@
 package com.twp.baseline;
 
-public interface Goods {
+public abstract class Goods {
 
-    double salesTax();
+    protected String name;
+    protected double price;
+
+    Goods(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public abstract double salesTax();
+    public abstract double importDuty();
 }
