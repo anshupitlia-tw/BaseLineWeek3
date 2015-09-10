@@ -10,7 +10,7 @@ public class Goods {
     }
 
     public double salesTax() {
-        if (!name.contains("book")) {
+        if (!name.contains("book") && (!name.contains("chocolate"))) {
             return price * 10 / 100;
         }
         else {
