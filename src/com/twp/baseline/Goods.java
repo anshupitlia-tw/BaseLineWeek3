@@ -13,18 +13,11 @@ public abstract class Goods {
     public abstract double salesTax();
     public abstract double importDuty();
 
-    public void getDisplayableTotalTax() {
-        System.out.println(totalTax());
+    public double totalPrice() {
+        return price + totalTax();
     }
 
-    public void getDisplayableName() {
-        System.out.print(name);
-    }
-    public void getDisplayableTotalPrice() {
-        System.out.println(price + totalTax());
-    }
-
-    private double totalTax() {
+    public double totalTax() {
         return roundOffTax(salesTax()) + roundOffTax(importDuty());
     }
 

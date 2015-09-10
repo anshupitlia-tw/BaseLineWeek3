@@ -52,28 +52,16 @@ public class GoodsTest {
     }
 
     @Test
-    public void shouldPrintTotalTaxAsAllTaxesRoundedOff() {
-        Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
+    public void shouldReturnTotalTax() {
+        Goods pills = new NonExemptedFromSalesTaxImportedGoods("An imported movie CD", 98.7);
 
-        musicCD.getDisplayableTotalTax();
-        assertEquals("1.5\n", outContent.toString());
+        assertEquals(14.85, pills.totalTax(), 0.0001);
     }
 
     @Test
-    public void shouldPrintTotalPriceAsPricePlusAllTaxesRoundedOff() {
-        Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
+    public void shouldReturnTotalPrice() {
+        Goods pills = new NonExemptedFromSalesTaxImportedGoods("An imported movie CD", 98.7);
 
-        musicCD.getDisplayableTotalPrice();
-
-        assertEquals("11.5\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldPrintDisplayableName() {
-        Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
-
-        musicCD.getDisplayableName();
-
-        assertEquals("An imported Music CD", outContent.toString());
+        assertEquals(113.550, pills.totalPrice(), 0.0001);
     }
 }
