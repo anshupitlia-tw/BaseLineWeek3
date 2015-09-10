@@ -10,6 +10,11 @@ public class Goods {
     }
 
     public double salesTax() {
-        return price * 10 / 100;
+        if (!name.contains("book")) {
+            return price * 10 / 100;
+        }
+        else {
+            return 0.0;
+        }
     }
 }
