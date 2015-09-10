@@ -26,4 +26,12 @@ public class Basket {
         }
         return totalCost;
     }
+
+    public void receipt() {
+        for (Goods goods : basket){
+            System.out.println(goods.getName() + ":" + goods.totalPrice());
+        }
+        System.out.println("Sales Tax:"+ totalTaxesPaid());
+        System.out.println("Total:" + totalCost());
+    }
 }

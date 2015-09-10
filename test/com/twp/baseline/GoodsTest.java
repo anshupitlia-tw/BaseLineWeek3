@@ -1,7 +1,5 @@
 package com.twp.baseline;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,18 +8,6 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 public class GoodsTest {
-
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-    @Before
-    public void setOutContent() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void cleanUpOutContent() {
-        System.setOut(System.out);
-    }
 
     @Test
     public void shouldCalculateAndReturnSalesTaxOfTenPercentOnItsPrice() {

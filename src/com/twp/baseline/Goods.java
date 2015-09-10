@@ -24,4 +24,8 @@ public abstract class Goods {
     private double roundOffTax(double tax) {
         return Math.ceil(tax * 20) / 20;
     }
+
+    public String getName() {
+        return name;
+    }
 }
