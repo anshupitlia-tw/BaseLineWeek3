@@ -17,6 +17,12 @@ Apache Ant
 
 ##Build and automate the test
 
-As of now, no source code and spec code there.
+Run this command
 
-Coming Soon. :)
+````
+ant
+````
+
+##Run the receipt generator
+
+Coming Soon :)
