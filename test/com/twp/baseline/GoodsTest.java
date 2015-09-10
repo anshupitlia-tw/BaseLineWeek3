@@ -1,10 +1,27 @@
 package com.twp.baseline;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
 public class GoodsTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setOutContent() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void cleanUpOutContent() {
+        System.setOut(System.out);
+    }
 
     @Test
     public void shouldCalculateAndReturnSalesTaxOfTenPercentOnItsPrice() {
@@ -35,16 +52,19 @@ public class GoodsTest {
     }
 
     @Test
-    public void shouldReturnTotalTaxAsAllTaxesRoundedOff() {
+    public void shouldPrintTotalTaxAsAllTaxesRoundedOff() {
         Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
 
-        assertEquals(1.50, musicCD.totalTax(), 0.0001);
+        musicCD.getDisplayableTotalTax();
+        assertEquals("1.5\n", outContent.toString());
     }
 
     @Test
-    public void shouldReturnTotalPriceAsPricePlusAllTaxesRoundedOff() {
+    public void shouldPrintTotalPriceAsPricePlusAllTaxesRoundedOff() {
         Goods musicCD = new NonExemptedFromSalesTaxImportedGoods("An imported Music CD", 10.00);
 
-        assertEquals(11.50, musicCD.totalPrice(), 0.0001);
+        musicCD.getDisplayableTotalPrice();
+
+        assertEquals("11.5\n", outContent.toString());
     }
 }
