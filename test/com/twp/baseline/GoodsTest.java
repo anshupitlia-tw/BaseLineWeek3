@@ -26,4 +26,11 @@ public class GoodsTest {
 
         assertEquals(0.0, book.salesTax(), 0.0001);
     }
+
+    @Test
+    public void shouldReturnNoTaxOnMedicalProductsSinceItIsExemptFromSalesTax() {
+        Goods book = new Goods("Headache pills", 10.67);
+
+        assertEquals(0.0, book.salesTax(), 0.0001);
+    }
 }
