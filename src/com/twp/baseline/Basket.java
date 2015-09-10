@@ -11,7 +11,7 @@ public class Basket {
         this.basket = basket;
     }
 
-    public double totalTaxesPaid() {
+    private double totalTaxesPaid() {
         double totalTax = 0.0;
         for (Goods goods : basket) {
             totalTax += goods.totalTax();
@@ -19,7 +19,7 @@ public class Basket {
         return totalTax;
     }
 
-    public double totalCost() {
+    private double totalCost() {
         double totalCost = 0.0;
         for (Goods goods : basket) {
             totalCost += goods.totalPrice();

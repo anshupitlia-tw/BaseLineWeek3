@@ -28,36 +28,6 @@ public class BasketTest {
     }
 
     @Test
-    public void shouldCalculateTotalTaxesPaid() {
-        Goods oneGoods = mock(Goods.class);
-        Goods twoGoods = mock(Goods.class);
-        List<Goods> goodsList = new ArrayList<>();
-        goodsList.add(oneGoods);
-        goodsList.add(twoGoods);
-        Basket basket = new Basket(goodsList);
-
-        when(oneGoods.totalTax()).thenReturn(1.65);
-        when(twoGoods.totalTax()).thenReturn(0.15);
-
-        assertEquals(1.80, basket.totalTaxesPaid(), 0.0001);
-    }
-
-    @Test
-    public void shouldCalculateTotalPricePaid() {
-        Goods oneGoods = mock(Goods.class);
-        Goods twoGoods = mock(Goods.class);
-        List<Goods> goodsList = new ArrayList<>();
-        goodsList.add(oneGoods);
-        goodsList.add(twoGoods);
-        Basket basket = new Basket(goodsList);
-
-        when(oneGoods.totalPrice()).thenReturn(12.65);
-        when(twoGoods.totalPrice()).thenReturn(1.15);
-
-        assertEquals(13.80, basket.totalCost(), 0.0001);
-    }
-
-    @Test
     public void shouldGenerateReceiptShowingTheNameOfItemTheirPriceInclOfTaxesAndTotalCostAndTotalAmount() {
         Goods oneGoods = mock(Goods.class);
         Goods twoGoods = mock(Goods.class);
