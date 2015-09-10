@@ -17,6 +17,10 @@ public abstract class Goods {
         return roundOffTax(salesTax()) + roundOffTax(importDuty());
     }
 
+    public double totalPrice() {
+        return price + totalTax();
+    }
+
     private double roundOffTax(double tax) {
         return Math.ceil(tax * 20) / 20;
     }
